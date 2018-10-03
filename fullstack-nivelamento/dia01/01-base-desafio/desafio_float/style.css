@@ -1,0 +1,81 @@
+/* resetando os estilos de página; isso remove o excesso de espaços brancos em volta das boxs e conteudos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* CONFIGURAÇÕES DE H1 e H2*/
+
+#estiloCabecalho {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: normal;
+    background: navy;
+    box-shadow: 5px 5px 10px lightgray;
+    text-align: center;
+    color: white;
+    padding: 30px;
+    width: 100%;
+}
+
+#estiloTitulos {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: navy;
+    font-size: 25px;
+    font-weight: normal;
+    text-align: center;
+
+}
+
+h2 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: normal;
+    color: navy;
+    font-size: 18px;
+}
+
+/* configurações do aside */
+
+aside {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: navy;
+    font-size: 20px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: navy;
+    box-shadow: 5px 5px 10px lightgray;
+
+    float: left;
+    padding: 200px 60px;
+    margin: 120px 240px;
+}
+
+/* configurações da seção principal */
+#secaoPrincipal {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: navy;
+    text-align: center;
+    font-size: 15px;
+
+    float: left;
+    width: 400px;
+    margin: 200px -80px; /*perguntar sobre utilização de margens negativas */
+
+}
+
+/* configurações do rodapé */
+
+footer {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    background-color: lightgray;
+    color: navy;
+    font-size: 20px;
+    margin: 0;
+    /* configurações a seguir para grudar o footer na parte inferior da página, sem nenhuma margem aos lados */
+    position: absolute;
+	bottom: 0px;
+    width: 100%;
+    /* fim de configurações para "grudar" o footer */
+    padding-top: 10px;
+    padding-bottom: 10px;

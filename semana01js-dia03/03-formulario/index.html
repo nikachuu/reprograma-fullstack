@@ -1,0 +1,75 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exercício 6</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    
+    <form action="#" class="form">
+
+        <div>
+            <label for="texto">Usuário</label>
+            <input type="text" name="texto" class="usuario">
+        </div>
+
+        <div>
+            <label for="texto">Senha</label>
+            <input type="text" name="texto" class="senha">
+        </div>
+
+        <div>
+            <label for="texto">Escolha uma ou múltiplas opções</label>
+            <div class="secaoOpcoes">
+                <input type="checkbox" name="animais" value="Gato"> Gato <br>
+                <input type="checkbox" name="animais" value="Cachorro"> Cachorro <br>
+                <input type="checkbox" name="animais" value="Capivara"> Capivara <br>
+                <input type="checkbox" name="animais" value="Jumento"> Jumento <br>
+            </div>
+        </div>
+
+        <div>
+            <label for="texto">Escolha um poder</label>
+            <div class="secaoOpcoes2">
+                <input type="radio" name="poder" value="Super força"> Super força <br>
+                <input type="radio" name="poder" value="No gas"> Não soltar gases <br>
+                <input type="radio" name="poder" value="Todos animais"> Saber imitar todos os animais <br>
+                <input type="radio" name="poder" value="Respirar"> Respirar no espaço <br>
+            </div>
+        </div>
+
+        <div>
+            <label for="texto">Selecione um livro</label>
+            <select name="dropdown">
+                <option value="Crepusculo">Crepúsculo</option>
+                <option value="Cronicas">As Crônicas de Gelo e Fogo</option>
+                <option value="Harry">Harry Potter</option>
+                <option value="Otaku">Prefiro ler mangás</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="texto">Escolha um valor</label>
+            <input type="number" name="valor">
+        </div>
+        
+        <div>
+            <label for="texto">Comentário</label>
+            <input type="text" name="comentario">
+        </div>
+
+        <div>
+            <div class="half-col"></div>
+            <button class="btn btn_grey">Limpar</button>
+            <input class="btn btn_purple" type="submit" value="Enviar" id="botaoEnviar">
+        </div>
+    </form>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
