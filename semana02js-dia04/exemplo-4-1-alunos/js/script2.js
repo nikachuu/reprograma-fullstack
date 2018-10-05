@@ -13,20 +13,21 @@ for (let indice = 0; indice < todosOsAlunos.length; indice++){
   const mediaCalculada = calculaMedia(primeiraNota, segundaNota);
   mediaFinal.textContent = mediaCalculada.toFixed(2); // ajusta as casas decimais dos numeros que irão aparecer
 
-    
-  if ( mediaCalculada < 5 ){
-    aluno.setAttribute("class", "abaixo-da-media"); // coloca aluno dentro de uma classe determinada pelo nome que esta nas segundas aspas
-    // boas praticas de js: melhor atribuir uma classe do que manipular style pelo DOM no JS
-  }
+  abaixoDaMedia(mediaCalculada, aluno);
+  //if (mediaCalculada < 5){
+  //aluno.setAttribute("class", "abaixo-da-media"); // coloca aluno dentro de uma classe determinada pelo nome que esta nas segundas aspas
+  //}
 }
 
 function calculaMedia(primeiroValorRecebido, segundoValorRecebido) {
   let mediaCalculadaDentroDaFuncao = 0;
-  mediaCalculadaDentroDaFuncao = 
+  mediaCalculadaDentroDaFuncao =
     (parseFloat(primeiroValorRecebido) + parseFloat(segundoValorRecebido)) / 2;
   return mediaCalculadaDentroDaFuncao;
+}
 
-  if ( mediaCalculadaDentroDaFuncao < 5 ){
-    aluno.setAttribute("class", "abaixo-da-media");
+function abaixoDaMedia (notaDaMedia, elementoTr) {
+  if (notaDaMedia < 5) {
+    elementoTr.setAttribute("class", "abaixo-da-media");
   }
 }
