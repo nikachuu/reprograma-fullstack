@@ -6,6 +6,15 @@ adicionarAluno.addEventListener("click", function(event) {
     const formularioAluno = document.querySelector("#form-adiciona");
     const novoAluno = obterOsDadosDoFormulario(formularioAluno);
 
+    // criado array com todas os possíveis erros que podem ocorrer na inserção dos dados
+    let dadosInvalidos = [novoAluno.nomeAluno == "", novoAluno.notaUmAluno < 0, novoAluno.notaUmAluno > 10, novoAluno.notaUmAluno == "", novoAluno.notaDoisAluno < 0, novoAluno.notaDoisAluno > 10, novoAluno.notaDoisAluno == ""];
+    console.log(dadosInvalidos);
+
+    // se houver pelo menos um true no array de dadosInvalidos, as notas não serão adicionadas
+    if ( dadosInvalidos.includes(true) ) {
+        alert("Os dados inseridos são inválidos, tente novamente.");
+    } else {
+
     const alunoTr = document.createElement("tr");
 
     const nomeAlunoTd = document.createElement("td");
@@ -27,6 +36,7 @@ adicionarAluno.addEventListener("click", function(event) {
     tabela.appendChild(alunoTr);
 
     abaixoDaMedia(novoAluno.media, alunoTr);
+    }
 });
 
 function obterOsDadosDoFormulario(formulario){
