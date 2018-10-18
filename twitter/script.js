@@ -1,25 +1,74 @@
-const botaoReclamar = document.querySelector("#btnEnviar");
-
-botaoReclamar.addEventListener("click", function(event){
-    event.preventDefault();
-
-    const reclamacao = document.querySelector("#exampleFormControlTextarea1").value;
-    // console.log(reclamacao);
-
-    const spanReclamacao = document.createElement("DIV");
-    const reclamacaoTextNode = document.createTextNode(reclamacao);
-
-    spanReclamacao.appendChild(reclamacaoTextNode);
-
-    const postagens = document.querySelector("#posts");
-    postagens.appendChild(spanReclamacao);
-
-});
-
-$("#btnEnviar").click(function(e){
-    e.preventDefault();
-})
-
-function inserirTweet(){
-    
-}
+$(document).ready(function() {
+    $(".text-field").val("");
+  
+  
+  $("#btn-submit").click(function(event){
+      event.preventDefault();
+      appendTweetToList($(".text-field").val());
+      $(".text-field").val("");
+      resetNumberOfChars();
+    });
+  
+    function appendTweetToList(tweet) {
+      $("#tweets").prepend(
+        `<div class="tweet bg-light mt-3 p-3">
+          <p class="tweet-text h3">${tweet}</p>
+          <span id="span-date" class="small">${appendDateToTweet()}</span>
+        </div>`
+        )
+    }
+  
+    function appendDateToTweet(){
+      return formatDate(new Date());
+    }
+  
+    function formatDate(date) {
+      const monthNames = ["jan", "fev", "mar", "abr", "mai", "jun", "jul", "ago", "set", "out","nov", "dez"];
+      let day = date.getDate();
+      let monthIndex = date.getMonth();
+      let year = date.getFullYear();
+      return `${day} de ${monthNames[monthIndex]} de ${year}`;
+    }
+  
+    function changeRemainingText() {
+      let remaining = 280 - $(".text-field").val().length;
+      return $("#char-count").text(`Você ainda tem ${remaining} caracteres disponíveis para reclamar.`);
+  }
+  
+    $(".text-field").keyup(function(){
+        changeRemainingText();
+        changeColorChars();
+        disableTweetButton();
+    });
+  
+    $(".text-field").change(function(){
+        changeRemainingText();
+    });
+  
+    function resetNumberOfChars(){
+      $("#char-count").text(`Você ainda tem 280 caractéres disponíveis para reclamar.`);
+    }
+  
+    function changeColorChars(){
+      if($(".text-field").val().length >= 240) {
+        $(".text-field").removeClass("text-warning");
+        $(".text-field").addClass("text-danger");
+      } else if($(".text-field").val().length >= 200 && $("#text-field").val().length < 240) {
+        $(".text-field").addClass("text-warning");
+        $(".text-field").removeClass("text-danger");
+      } else {
+        $(".text-field").removeClass("text-danger text-warning");
+      }
+    }
+  
+    function disableTweetButton(){
+      if($(".text-field").val().length > 280){
+        $("#btn-submit").addClass("disabled");
+        $("#btn-submit").attr("disabled", true);
+        console.log("disabled");
+      } else {
+        $("#btn-submit").removeClass("disabled");
+        $("#btn-submit").attr("disabled", false);
+      }
+    }
+  });
